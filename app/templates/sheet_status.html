@@ -1,0 +1,44 @@
+{% include 'college_header.html' %}
+<div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12" style="padding-top: 50px;">
+    <div class="card">
+        <h5 class="card-header">Update Sheet</h5>
+        <div class="card-body">
+            {% if messages %}
+                {% for i in messages %}
+                    <div class="alert alert-success">{{i}}</div>
+                {% endfor %}
+            {% endif %}
+            <form  id="basicform" method="post" enctype="multipart/form-data">{% csrf_token %}
+             {% for i in detail %}
+                <div class="form-group">
+                    <label for="inputUserName">Sheet Status</label>
+                    <input id="inputUserName" type="text" name="sheet" required="required"  class="form-control" value="{{i.sheet}}">
+                </div>
+                <div class="form-group">
+                    <label for="inputUserName">Amount</label>
+                    <input id="inputUserName" type="text" name="amount" required="required"  class="form-control" value="{{i.amount}}">
+                </div>
+                 <div class="form-group">
+                    <label for="inputUserName">Date to Come</label>
+                    <input id="inputUserName" type="date" name="date" required="required"  class="form-control" value="{{i.date}}">
+                </div>
+                <div class="form-group">
+                    <label for="inputUserName">Documents should Bring</label>
+                    <textarea name="documents" class="form-control">{{i.documents}}</textarea>
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm-6 pl-0">
+                    </div>
+                    <div class="col-sm-6 pl-0">
+                        <p class="text-right">
+                            <button type="submit" class="btn btn-space btn-success">Confirm Sheet  </button>
+                            <button type="reset" class="btn btn-space btn-danger">Cancel</button>
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+            </form>
+        </div>
+    </div>
+</div>

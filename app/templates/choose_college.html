@@ -1,0 +1,30 @@
+{%include 'user_header.html'%}
+
+<center><h1 style="padding-top: 20px;font-size: 20px;"><i>Select College</i></h1></center>
+
+ <div class="container" style="margin:0 auto;width: 80%;">
+ 	<div class="row">
+ 		{% for i in a %}
+ 		<div class="col-md-6">
+ 			<h3>College Name: {{i.college_name}}</h3><br>
+ 			<img src="/media/{{i.image}}" style="width: 100%">
+ 			<h4>Rules and Regulations</h4>
+ 			<p>{{i.rules}}</p>
+ 			<h4>Address</h4>
+ 			<p>{{i.address}}</p>
+ 		</div>
+ 		<div class="col-md-6">
+ 			<h3></h3><br>
+ 			<h5>Email Id: {{i.email}}</h5>
+ 			<h5>Mobile: {{i.mobile}}</h5>
+ 			<h5>Accommodation Fee: {{i.accommodation_fee}}</h5>
+ 			<p>Eligibility: {{i.eligibility}}</p>
+ 			<h5>Course: {{i.course}} </h5>
+ 			<p>Placement: {{i.placement}}</p>
+ 			<p>Scholarship: {{i.scholarship_scheme}}</p>
+ 			<a href="{% url 'apply_course' pk=i.id %}" class="btn btn-info">APPLY NOW</a>
+ 		</div>
+ 		{% endfor %}
+ 	</div>
+</div>
+

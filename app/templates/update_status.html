@@ -1,0 +1,54 @@
+{% include 'college_header.html' %}
+<div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12" style="padding-top: 50px;">
+    <div class="card">
+        <h5 class="card-header">Update Status</h5>
+        <div class="card-body">
+            {% if messages %}
+                {% for i in messages %}
+                    <div class="alert alert-success">{{i}}</div>
+                {% endfor %}
+            {% endif %}
+            <form  id="basicform" method="post" enctype="multipart/form-data">{% csrf_token %}
+                
+                <div class="form-group">
+                    <label for="inputUserName">Category</label>
+                    <select name="category" class="form-control">
+                        <option value="">Select</option>
+                        {% for i in detail %}
+                            <option value="{{i.id}}">{{i.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="inputUserName">Status</label>
+                    <select name="status" class="form-control">
+                        <option value="">Select</option>
+                            <option value="test">Take Test</option>
+                            <option value="rejected">Rejected</option>
+                    </select>
+
+                </div>
+                <div class="form-group">
+                    <label for="inputUserName">Test Status</label>
+                    <select name="test_status" class="form-control">
+                        <option value="">Select</option>
+                            <option value="taken">Test Taken</option>
+                            <option value="not">Not Yet</option>
+                    </select>
+                    
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm-6 pl-0">
+                    </div>
+                    <div class="col-sm-6 pl-0">
+                        <p class="text-right">
+                            <button type="submit" class="btn btn-space btn-success">Update Status  </button>
+                            <button type="reset" class="btn btn-space btn-danger">Cancel</button>
+                        </p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

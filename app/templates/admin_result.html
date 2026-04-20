@@ -1,0 +1,65 @@
+{% include 'admin_header.html' %}
+<style>
+table {
+	font-family: times new roman;
+	border-collapse: collapse;
+	width: 100%;
+}
+td, th{
+	border: 1px solid #dddddd;
+	text-align: center;
+	padding: 8px;
+	}
+</style>
+
+ <div class="container" style="margin:0 auto;">
+ 	<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" style="padding-top: 100px;">
+    <div class="card" >
+        <h5 class="card-header">Publish Result</h5>
+        <div class="card-body">
+            <div class="table-responsive ">
+                <table class="table table-bordered">
+                    <thead style="background: #ff407b;color: #FFF">
+                        <tr class="white">
+	                        <th>S.No</th>
+                            <th>Student Name</th>
+                            <th>Email Id</th>
+							<th>College Name</th>
+							<th>Course</th>
+                            <th>12th %</th>
+                            <th>Certificate</th>
+                            <th>Test Category</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in detail %}
+                        <tr>
+					        <td>{{forloop.counter}}</td>
+                            <td>{{i.student_id}}</td>
+                            <td>{{i.student_id.email_id}}</td>
+							<td>{{i.college_id}}</td>
+                            <td>{{i.course}}</td>
+                            <td>{{i.mark}}</td>
+                            <td><a href="/media/{{i.certificate}}" class="btn btn-primary btn-xs" target="_blank"><i class="fa fa-download"></i></a></td>
+							<td>
+                                {{i.category_id}}
+                            </td>
+                            <td>
+                                <a href="{% url 'admin_student_result' cat_id=i.category_id_id pk=i.student_id_id %}" class="btn btn-success btn-xs">View Result</a>
+                                
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="8" class="text-center bg-primary">No Result</td>
+                        </tr>
+                       {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+

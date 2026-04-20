@@ -1,0 +1,59 @@
+{% include 'college_header.html' %}
+<div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12" style="padding-top: 50px;">
+    <div class="card">
+        <h5 class="card-header">Add Question</h5>
+        <div class="card-body">
+            {% if messages %}
+                {% for i in messages %}
+                    <div class="alert alert-success">{{i}}</div>
+                {% endfor %}
+            {% endif %}
+            <form  id="basicform" method="post" enctype="multipart/form-data">{% csrf_token %}
+                <div class="form-group">
+                    <label for="inputUserName">Category</label>
+                    <select name="category" class="form-control">
+                        <option value="">Select</option>
+                        {% for i in detail %}
+                            <option value="{{i.id}}">{{i.name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="inputUserName">Question</label>
+                    <input id="inputUserName" type="text" name="question" required="required"  class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="inputUserName">Option 1</label>
+                    <input id="inputUserName" type="text" name="option1" required="required"  class="form-control">
+                </div>
+                 <div class="form-group">
+                    <label for="inputUserName">Option 2</label>
+                    <input id="inputUserName" type="text" name="option2" required="required"  class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="inputUserName">Option 3</label>
+                    <input id="inputUserName" type="text" name="option3" required="required"  class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="inputUserName">Option 4</label>
+                    <input id="inputUserName" type="text" name="option4" required="required"  class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="inputUserName">Answer</label>
+                    <input id="inputUserName" type="text" name="answer" required="required"  class="form-control">
+                </div>
+                
+                <div class="row">
+                    <div class="col-sm-6 pl-0">
+                    </div>
+                    <div class="col-sm-6 pl-0">
+                        <p class="text-right">
+                            <button type="submit" class="btn btn-space btn-success">Add Question  </button>
+                            <button type="reset" class="btn btn-space btn-danger">Cancel</button>
+                        </p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

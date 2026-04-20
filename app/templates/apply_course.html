@@ -1,0 +1,54 @@
+{% include 'user_header.html' %}
+<div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12" style="padding-top: 50px;">
+    <div class="card">
+        <h5 class="card-header">Apply</h5>
+        <div class="card-body">
+            {% if messages %}
+                {% for i in messages %}
+                    <div class="alert alert-success">{{i}}</div>
+                {% endfor %}
+            {% endif %}
+            <form  id="basicform" method="post" enctype="multipart/form-data">{% csrf_token %}
+                
+                <div class="form-group">
+                    <label for="inputUserName">Course</label>
+                    <input id="inputUserName" type="text" name="course" required="required"  class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="inputUserName">12th Percentage</label>
+                    <input id="inputUserName" type="text" name="mark" required="required"  class="form-control">
+                </div>
+                 <div class="form-group">
+                    <label for="inputUserName">Upload Mark Sheet</label>
+                    <input id="inputUserName" type="file" name="certificate" required="required"  class="form-control">
+                </div>
+				<div class="form-group">
+                    <label for="inputUserName">Aadhaar Number</label>
+                    <input id="inputUserName" type="number" name="aadhaar" required="required"  class="form-control">
+                </div>
+                 <div class="form-group">
+                    <label for="inputUserName">Upload Aadhaar proof</label>
+                    <input id="inputUserName" type="file" name="proof" required="required"  class="form-control">
+                </div>
+				<div class="form-group">
+                    <label for="inputUserName">Community</label>
+                    <input id="inputUserName" type="text" name="community" required="required"  class="form-control">
+                </div>
+                 <div class="form-group">
+                    <label for="inputUserName">Upload Community Certificate</label>
+                    <input id="inputUserName" type="file" name="commun" required="required"  class="form-control">
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 pl-0">
+                    </div>
+                    <div class="col-sm-6 pl-0">
+                        <p class="text-right">
+                            <button type="submit" class="btn btn-space btn-success">Apply  </button>
+                            <button type="reset" class="btn btn-space btn-danger">Cancel</button>
+                        </p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
