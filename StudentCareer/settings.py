@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'v&r^v^ksy@7htn@r1_j$zd@x=-c2!bxsl8c6xdn&53l4v)4d5x'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['student-career-counseling.onrender.com']
 
